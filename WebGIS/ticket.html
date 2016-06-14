@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动更新发布</title>
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <!--下面三个是清除缓存 微信浏览器缓存严重又无刷新；这个方法调试的时候很方便-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="./JavaScript/jquery-2.2.3.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-family: '微软雅黑';
+            text-overflow:ellipsis; 
+            word-wrap: break-word; 
+            color: #777;
+        }
+        body {
+            padding:70px 0.6rem;
+        }
+        /*移动端适配*/
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 50px 0;
+            }
+        }
+        /*rem设置字体*/
+        html {
+            font-size : 16px;
+        }
+        @media only screen and (min-width: 401px){
+            html {
+                font-size: 20px !important;
+            }
+        }
+        @media only screen and (min-width: 428px){
+            html {
+                font-size: 21.75px !important;
+            }
+        }
+        @media only screen and (min-width: 481px){
+            html {
+                font-size: 24px !important; 
+            }
+        }
+        @media only screen and (min-width: 569px){
+            html {
+                font-size: 27px !important; 
+                }
+        }
+        @media only screen and (min-width: 641px){
+            html {
+                font-size: 30px !important; 
+            }
+        }
+        /*搜索栏bug处理*/
+        @media screen and (min-width: 700px) and (max-width: 998px) {
+            .form-responsive {
+                display: none;
+            }
+        }
+        .mobiOnly {
+            display: none;
+        }
+        @media screen and (max-device-width: 480px) {
+            .pcOnly {
+                display: none;
+            }
+            .mobiOnly {
+                display: inline-block;
+            }
+        }
+        .main {
+            /*margin:0 2rem;  */
+            box-sizing: border-box;
+        }
+        .introZone {
+            position: relative;
+            margin-bottom: 0.2rem;
+            padding: 1rem 0.2rem 1rem 0;
+            background-color:#F9F9F9;
+            border-radius: 5px;
+        }
+        .channel { 
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size:0.8rem; 
+            text-align: center;
+        }
+        .introZone .info {
+            border-left: 2px solid #fff;
+            font-size: 0.4rem;
+        }
+        @media screen and (max-width: 480px) {
+            .breadcrumb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">缩放导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand pcOnly" href="index.html">钟山风景区</a>
+              <a class="navbar-brand mobiOnly" href="#"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>返回</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山景区&nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="zsl.html">中山陵景区</a></li>
+                    <li><a href="#">明孝陵景区</a></li>
+                    <li><a href="#">灵谷景区</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山特色&nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">文化钟山</a></li>
+                    <li><a href="#">休闲钟山</a></li>
+                    <li><a href="#">生态钟山</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">景区服务&nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">食在钟山</a></li>
+                    <li><a href="#">宿在钟山</a></li>
+                    <li><a href="#">行在钟山</a></li>
+                    <li><a href="#">游在钟山</a></li>
+                    <li><a href="#">购在钟山</a></li>
+                    <li><a href="#">娱在钟山</a></li>
+                  </ul>
+                </li>
+                <li><a href="navigation.html">景区导航</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">音色钟山&nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">图片库</a></li>
+                    <li><a href="#">视频库</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-right form-responsive"  role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" placeholder="搜索">
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                <button type="submit" class="btn btn-default btn-sm">
+                    登录
+                </button>
+              </form>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="main container">
+            <div class="row">
+                <ol class="col-lg-12 breadcrumb">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="active">票价详情</li>
+                </ol> 
+                <div class="col-lg-12 introZone">
+                    <div class="row">
+                        <div class="channel col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>中山陵景区</p>
+                        </div>
+                        <div class="info col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                            <p>票价：中山陵陵寝免费开放、音乐台10元/人、美龄宫30元/人</p>
+                            <p>时间：08：30-17：00开放（周一关闭祭堂和墓室）</p>
+                            <p>交通：乘坐南京地铁2号线至中山陵下马坊站下车，出站可换乘景区观光车或沿博爱路步行前往中山陵</p>
+                            <p>乘坐南京公交34路或201路至中山陵停车场站</p>
+                            <p>景点：中山陵、音乐台、美龄宫、流徽榭、孙中山纪念馆</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 introZone">
+                    <div class="row">
+                        <div class="channel col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>明孝陵景区</p>
+                        </div>
+                        <div class="info col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                            <p>票价：70元/人</p>
+                            <p>时间：3月—10月 6：30—18：30开放；11月—次年2月 6：30—18：00开放</p>
+                            <p>交通：乘坐南京地铁2号线，至明孝陵苜蓿园站下车，出站可步行至明孝陵景区</p>
+                            <p>乘坐南京公交20路、203路、315路至明孝陵站下车</p>
+                            <p>景点：明孝陵、石象路、梅花山、紫霞湖、明孝陵博物馆、东吴大帝孙权纪念馆</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 introZone">
+                    <div class="row">
+                        <div class="channel col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>灵谷景区</p>
+                        </div>
+                        <div class="info col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                            <p>票价：35元/人</p>
+                            <p>时间：3月—10月 6：30—18：30开放,11月—次年2月 6：30—18：00开放</p>
+                            <p>交通：乘坐公交202路至灵谷寺公园站下车</p>
+                            <p>景点：无梁殿、灵谷寺、灵谷塔、灵谷深松、谭延闿墓、邓演达墓</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 introZone">
+                    <div class="row">
+                        <div class="channel col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>购票须知</p>
+                        </div>
+                        <div class="info col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                            <p>以上景点套票100元/人。景区各售票窗口均有销售，咨询电话：84437786。</p>
+                            <p>团队十人以上，凭导游本人导游证、行程单（任务单），可享受八折优惠。</p>
+                            <p>6周岁（含6周岁）以下或身高1.4米（含1.4米）以下儿童免费入园；6周岁（不含6周岁）—18周岁（含18周岁）未成年人、全日制大学本科及以下学历学生凭有效证件享受半价优惠。</p>
+                            <p>60—69周岁老人凭有效身份证件享受半价优惠；70周岁以上老人凭有效身份证件免费入园。</p>
+                            <p>离休人员、现役军人、部队离退休干部、残疾人凭有效证件免费入园。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.test {
+			display: block;/*canvas不是块级元素。在这设置宽高无效，即时display了也是个假的，对context无效*/
+			margin: 0 auto;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="test" class="test"></canvas>	
+	<script>
+		// var sev=[
+		//        {p:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],color:"#caff67"},
+		//        {p:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],color:"#67beef"},
+		//        {p:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],color:"#ef3d61"},
+		//        {p:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],color:"#f9f51a"},
+		//        {p:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],color:"#a594c0"},
+		//        {p:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],color:"#fa8ecc"},
+		//        {p:[{x:800,y:400},{x:800,y:800},{x:400,y:800},{x:600,y:200}],color:"#f6ca29"}
+		//    ]
+		window.onload = function () {
+			var canvas = document.getElementById('test');
+
+			canvas.width = 800;
+			canvas.height = 800;
+
+			var context = canvas.getContext("2d");
+			//绘制弧线和圆
+			
+			context.lineWidth = 5;
+			context.strokeStyle = "#e44";
+			for (var i = 0; i < 10; i++) {
+				context.beginPath();
+				context.arc(50 + i*100,60,40,0,2*Math.PI*(i+1)/10);
+				// context.closePath();
+				// 使用close之后 会自动将弧线的首尾结合起来。
+				context.stroke();
+			}
+			
+			
+			//绘制七巧板
+			
+			// for (var i = 0; i < sev.length; i++) {
+			// 	draw(sev[i],context);
+			// }
+
+			// function draw(pic,cxt) {
+			// 	cxt.beginPath();
+			// 	cxt.moveTo(pic.p[0].x,pic.p[0].y);
+			// 	for (var i = 1; i < pic.p.length; i++) {
+			// 		cxt.lineTo(pic.p[i].x,pic.p[i].y);
+			// 	}
+			// 	cxt.closePath();
+
+			// 	cxt.fillStyle = pic.color;
+			// 	cxt.fill();
+
+			// 	cxt.strokeStyle = "black";
+			// 	cxt.lineWidth = 2;
+			// 	cxt.stroke();
+			// }
+			// 
+			// 
+			// 绘制直线
+			// context.beginPath();
+			// context.moveTo(100,100);
+			// context.lineTo(100,500);
+			// context.lineTo(500,500);
+			// context.closePath();
+
+			// context.lineWidth = 8;
+			// context.strokeStyle = "black";
+			// context.stroke()
+
+			// context.beginPath();
+			// context.moveTo(150,100);
+			// context.lineTo(550,500);
+			// context.closePath();
+			// context.lineWidth = 5;
+			// context.strokeStyle = "#e44";
+			// context.stroke();
+			//第二次stroke会重新按照最新的设置进行绘制，并覆盖原来的，如果属性设置不一样就可以看出，原来的还在。比如linewidth设置不一致，就会出现黑色边框
+		}
+	</script>
+</body>
+</html>
