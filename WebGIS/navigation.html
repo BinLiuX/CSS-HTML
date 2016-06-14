@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <!--下面三个是清除缓存 微信浏览器缓存严重又无刷新；这个方法调试的时候很方便-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="./JavaScript/jquery-2.2.3.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=EYfHistwYrQ0uCiCmk8ZMTjb1tZohBXz"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+	<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		body {
+			padding:50px 0 0 0;
+		}
+		/*移动端适配*/
+		@media screen and (max-width: 480px) {
+
+		}
+		/*rem设置字体*/
+		html {
+		    font-size : 16px;
+		}
+		@media only screen and (min-width: 401px){
+		    html {
+		        font-size: 20px !important;
+		    }
+		}
+		@media only screen and (min-width: 428px){
+		    html {
+		        font-size: 21.75px !important;
+		    }
+		}
+		@media only screen and (min-width: 481px){
+		    html {
+		        font-size: 24px !important; 
+		    }
+		}
+		@media only screen and (min-width: 569px){
+		    html {
+		        font-size: 27px !important; 
+		        }
+		}
+		@media only screen and (min-width: 641px){
+		    html {
+		        font-size: 30px !important; 
+		    }
+		}
+		/*搜索栏bug处理*/
+		@media screen and (min-width: 700px) and (max-width: 998px) {
+			.form-responsive {
+				display: none;
+			}
+		}
+		.mobiOnly {
+			display: none;
+		}
+		@media screen and (max-width: 480px) {
+			.mobiOnly {
+				display: inline-block;
+			}
+			.pcOnly {
+				display: none;
+			}
+		}
+		#allmap {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">缩放导航</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand mobiOnly" href="#"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back</a>
+	      <a class="navbar-brand pcOnly" href="index.html">钟山风景区</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山景区&nbsp;<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">中山陵景区</a></li>
+	            <li><a href="#">明孝陵景区</a></li>
+	            <li><a href="#">灵谷景区</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山特色&nbsp;<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">文化钟山</a></li>
+	            <li><a href="#">休闲钟山</a></li>
+	            <li><a href="#">生态钟山</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">景区服务&nbsp;<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">食在钟山</a></li>
+	            <li><a href="#">宿在钟山</a></li>
+	            <li><a href="#">行在钟山</a></li>
+	            <li><a href="#">游在钟山</a></li>
+	            <li><a href="#">购在钟山</a></li>
+	            <li><a href="#">娱在钟山</a></li>
+	          </ul>
+	        </li>
+	        <li><a href="navigation.html">景区导航</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">音色钟山&nbsp;<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">图片库</a></li>
+	            <li><a href="#">视频库</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <form class="navbar-form navbar-right form-responsive"  role="search">
+	        <div class="form-group">
+	        	<input type="text" class="form-control input-sm" placeholder="搜索">
+	        </div>
+	        <button type="submit" class="btn btn-default btn-sm">
+	        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	        </button>
+	      </form>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-- Modal -->
+
+	<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title text-center" id="myModalLabel">获取信息界面</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1"></label>
+							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="您来自哪个城市？">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1"></label>
+							<input type="text" class="form-control" id="exampleInputPassword1" placeholder="您的年龄是？">
+						</div>
+
+						<div class="form-group">
+							<label for="sex">您的性别是？</label>
+							<label class="radio-inline">
+								<input type="radio"  value="option1" name="sex">男性
+							</label>
+							<label class="radio-inline">
+								<input type="radio"  value="option2" name="sex">女性
+							</label>
+						</div>
+						<div class="form-group">
+							<label for="way">您的出游方式？</label>
+							<label class="radio-inline">
+								<input type="radio"  value="option1" name="way">个人
+							</label>
+							<label class="radio-inline">
+								<input type="radio"  value="option2" name="way">团队
+							</label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="allmap"></div>
+	<script type="text/javascript">
+	$(function () {
+	    function alert() {
+	    	$("#myModal").show();
+	    	$(".modal-footer .btn").click(function () {
+	    	    $("#myModal").hide();
+	    	})
+	    	$(".close").click(function () {
+	    	    $("#myModal").hide();
+	    	})
+		}
+		alert();
+	    function map() {
+
+	    	var map = new BMap.Map("allmap",{minZoom:12,maxZoom:18},{enableMapClick:false}); 
+	    	map.centerAndZoom(new BMap.Point(118.860932,32.069552),14); 
+	    	map.addControl(new BMap.MapTypeControl()); 
+	    	map.setCurrentCity("南京");         
+	    	
+	    	map.enableScrollWheelZoom(true);     
+	    	map.enableContinuousZoom(); 
+
+			//添加控件和比例尺
+			
+	    	var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+    		var top_left_navigation = new BMap.NavigationControl(); 
+    		function addTool(){
+    			map.addControl(top_left_control);        
+    			map.addControl(top_left_navigation);       
+    		}
+    		addTool();
+
+    		//添加地图类型和缩略图
+ 
+    		var overView = new BMap.OverviewMapControl();
+    		var overViewOpen = new BMap.OverviewMapControl({isOpen:true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT});
+    		function addView(){
+    			map.setCurrentCity("南京");       
+    			map.addControl(overView);        
+    			map.addControl(overViewOpen);      
+    		}
+	    	addView();
+
+
+
+	    	// 添加带有定位的导航控件
+			var navigationControl = new BMap.NavigationControl({
+				anchor: BMAP_ANCHOR_TOP_LEFT,
+				type: BMAP_NAVIGATION_CONTROL_LARGE,
+				enableGeolocation: true
+			});
+			map.addControl(navigationControl);
+			var geolocationControl = new BMap.GeolocationControl();
+			map.addControl(geolocationControl);
+
+			//添加覆盖物
+			var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+			                    '<img src="images/W020141208525173084727.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+			                    '地址：石象路7号<br/>标签：旅游景点 风景区 5a风景区<br/>简介：中山陵位于江苏南京市区，是伟大的革命先行者孙中山先生的陵墓，灵柩于1929年6月1日奉安于此。' +
+			                  '</div>';
+
+		    //创建检索信息窗口对象
+		    var searchInfoWindow = null;
+			searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+					title  : "中山陵",      //标题
+					width  : 290,             //宽度
+					height : 105,              //高度
+					panel  : "panel",         //检索结果面板
+					enableAutoPan : true,     //自动平移
+					searchTypes   :[
+						BMAPLIB_TAB_SEARCH,   //周边检索
+						BMAPLIB_TAB_TO_HERE,  //到这里去
+						BMAPLIB_TAB_FROM_HERE //从这里出发
+					]
+				});
+		    var marker = new BMap.Marker(new BMap.Point(118.860932,32.069552)); //创建marker对象
+		    marker.addEventListener("click", function(e){
+			    searchInfoWindow.open(marker);
+		    })
+		    marker.enableDragging();
+		    map.addOverlay(marker); //在地图中添加marker
+	    }
+	    map();
+	})
+		
+	</script>
+</body>
+</html>

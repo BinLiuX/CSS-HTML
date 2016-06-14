@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>钟山风景区</title>
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <!--下面三个是清除缓存 微信浏览器缓存严重又无刷新；这个方法调试的时候很方便-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="./JavaScript/jquery-2.2.3.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/indexstyle.css">
+</head>
+<body>
+	<div class="indexCon">
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">缩放导航</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">钟山风景区</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山景区&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="zsl.html">中山陵景区</a></li>
+		            <li><a href="#">明孝陵景区</a></li>
+		            <li><a href="#">灵谷景区</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山特色&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">文化钟山</a></li>
+		            <li><a href="#">休闲钟山</a></li>
+		            <li><a href="#">生态钟山</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">景区服务&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">食在钟山</a></li>
+		            <li><a href="#">宿在钟山</a></li>
+		            <li><a href="#">行在钟山</a></li>
+		            <li><a href="#">游在钟山</a></li>
+		            <li><a href="#">购在钟山</a></li>
+		            <li><a href="#">娱在钟山</a></li>
+		          </ul>
+		        </li>
+		        <li><a href="navigation.html">景区导航</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">音色钟山&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">图片库</a></li>
+		            <li><a href="#">视频库</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-right form-responsive"  role="search">
+		        <div class="form-group">
+		        	<input type="text" class="form-control input-sm" placeholder="搜索">
+		        </div>
+		        <button type="submit" class="btn btn-default btn-sm">
+		        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		        </button>
+		        <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+		            登录
+		        </a>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<!-- Modal -->
+		<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title text-center" id="myModalLabel">用户登录页面</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form action="management.html" method="GET" id="formCheck">
+		          <div class="form-group">
+		            <label for="userName">请输入您的用户名</label>
+		            <input type="text" class="form-control" id="userName" placeholder="用户名">
+		            <span class="tip"></span>
+		          </div>
+		          <div class="form-group">
+		            <label for="password">请输入您的密码</label>
+		            <input type="password" class="form-control" id="password" placeholder="密码">
+		            <span class="tip"></span>
+		          </div>
+		          <input class="submit btn btn-info" type="submit" value="登陆">
+		        </form>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+		<!-- 滑动图片 -->
+		<div id="zsSlide" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators" style="bottom: 0">
+				<li data-target="#zsSlide" data-slide-to="0" class="active"></li>
+				<li data-target="#zsSlide" data-slide-to="1"></li>
+				<li data-target="#zsSlide" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img src="./images/zsl-carousel.jpg" alt="chrome">
+					<div class="carousel-caption">
+						<h3>中山陵</h3>
+						<p>伟大的革命者孙中山先生陵寝</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="./images/mxl-carousel.jpg" alt="...">
+					<div class="carousel-caption">
+						<h3>明孝陵神道</h3>
+						<p>深秋季节景色怡人</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="./images/lgs-carousel.jpg" alt="...">
+					<div class="carousel-caption">
+						<h3>灵谷景区</h3>
+						<p>曲径通幽万株桂香</p>
+					</div>
+				</div>
+			</div>
+			<!--Carousel Controls -->
+			<a class="left carousel-control" href="#zsSlide" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#zsSlide" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!-- 资讯 -->
+		<div class="container-fluid zsInfo">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-12 zsInfo-1">
+					<div class="zsTitle"  >
+		            	<h3>钟山风景区</h3>
+		            </div>
+		            <div class="content">
+		            	<div class="zsTitleImg">
+		            		<img src="./images/W020141208525173084727.jpg" class="img-responsive" />
+		            	</div>
+		                <p style="margin-top: 0.2rem">
+			                　　钟山位于南京城东，自古被誉为“江南四大名山”之一，有“钟山龙蟠”之美誉。景区面积31平方公里，其间山、水、城、林浑然一体，自然景观丰富优美，文化底蕴博大深厚，中山陵、灵谷寺、明孝陵三大核心景区分布着各类名胜古迹200多处，其中，世界文化遗产1处，全国重点文物保护单位15处，省市级文物保护单...
+			                <a href="#" target="_blank">[查看详情]</a>
+		                </p>
+		            </div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 zsInfo-2">
+					<div class="zsTitle"  >
+		            	<h3>旅游资讯<small class="pull-right" style="line-height: 1rem;"><a href="#" style="color: #E30101"><em>More</em></a></small></h3>
+		            </div>
+		            <div class="content">
+		                <div class="con_pad">
+	                        <div class="hotNews">
+	                        	<h4 class="text-center">演出通知</h4>
+	                            <p>
+	                            	　　【演出通知】4月16日（周六）下午原定中山陵音乐台音乐会因天气原因取消。4月17日（周日）下午演出...<a href="#" target="_blank">[查看详情]</a>
+	                            </p>
+	                        </div>
+	                        <div class="newsList">
+	                        	<ul class="list-unstyled">
+	                        		<li class="mobiShow"><span><a href="#" target="_blank" title="那一片鸢尾花开">音乐台演出通知</a></span> 2016-04-16</li>
+	                            	
+	                            	<li><span><a href="#" target="_blank" title="那一片鸢尾花开">那一片鸢尾花开</a></span> 2016-04-15</li>
+	                          	
+	                            	<li><span><a href="#" target="_blank" title="人间四月，钟山有约">人间四月，钟山有约</a></span> 2016-04-14</li>
+	                          	
+	                            	<li><span><a href="#" target="_blank" title="历史印记--灵谷景区之灵响亭">历史印记--灵谷景区之灵响亭</a></span> 2016-04-14</li>
+	                          	
+	                            	<li class="hotNews"><span><a href="#" target="_blank" title="【紫藤花开音乐季】双休日中山陵音乐台演出日程">【紫藤花开音乐季】双休日中山陵音乐台演...</a></span> 2016-04-08</li>
+	                            	<li class="hotNews"><span><a href="#" target="_blank" title="不一样的二月兰">不一样的二月兰</a></span> 2016-04-08</li>
+	                            	<li class="hotNews"><span><a href="#" target="_blank" title="【笑脸大搜索】那些年我们一起坐的紫金山索道">【笑脸大搜索】那些年我们一起坐的紫金山索道</a></span> 2016-04-08</li>
+	                            </ul>
+	                        </div>
+		               </div>
+		            </div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 weather">
+					<div class="zsTitle"  >
+		            	<h3>
+			            	旅游指数
+			            	<small class="pull-right" style="line-height: 1rem;"><a href="#" style="color: #E30101"><em>More</em></a></small>
+		            	</h3>
+		            </div>
+				</div>
+			</div>
+		</div>
+		<!-- 广告条 -->
+		<div class="musicAds">
+			<a href="#"><img class="img-responsive" src="./images/W020160330565868347286.jpg" alt=""></a>
+		</div>
+		<!-- 景点介绍 -->
+		<div class="container-fluid zsSpot">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+					<div class="row-fluid blockRight">
+						<div class="openTime col-lg-12 col-md-12 col-sm-12 col-xs-4">
+						    <h4>
+						        开放时间
+						    </h4>
+					        <p>
+					            中山陵陵寝<br>8：30-17：00<br/>
+					            <span>周一关闭祭堂和墓室</span>
+					        </p>
+						    <a class="mobiHidden" href="" target="_blank"><img style="max-width: 100%" src="./images/zsPriceinfo.jpg"/></a>
+						</div>
+						<div class="transport col-lg-12 col-md-12 col-sm-12 col-xs-4">
+							<h4>
+							    景区交通
+							</h4>
+						    <ul class="list-unstyled list-inline setFlex">
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="自驾"><img src="./images/zsl_index_transport_icon01.jpg" class="img-responsive" /></a>
+						        </li>
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="停车"><img src="./images/zsl_index_transport_icon02.jpg" class="img-responsive" /></a>
+						        </li>
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="地铁"><img src="./images/zsl_index_transport_icon03.jpg" class="img-responsive" /></a>
+						        </li>
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="公交"><img src="./images/zsl_index_transport_icon04.jpg" class="img-responsive" /></a>
+						        </li>
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="观光车"><img src="./images/zsl_index_transport_icon05.jpg" class="img-responsive" /></a>
+						        </li>
+						        <li>
+						            <a href="" target="_blank" data-toggle="tooltip" data-placement="top" title="绿道"><img src="./images/zsl_index_transport_icon06.jpg" class="img-responsive" /></a>
+						        </li>
+						    </ul>
+						</div>
+						<div class="otherSer col-lg-12 col-md-12 col-sm-12 col-xs-4">
+							<div style="max-width: 220px">
+								<h4>
+								    景区服务
+								</h4>
+								<a href=""><img class="img-responsive" src="./images/otherserve.jpg" alt=""></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 viewplace">
+							<div class="title">
+							    <span>
+							    	中山陵景区
+							    	<small class="pull-right" style="line-height: 1rem;"><a href="#" style="color: #E30101"><em>More</em></a></small>
+							    </span>
+							    <div class="viewp_share">
+								    <button class="btn btn-sm btn-default">图游景区</button>
+								    <button class="btn btn-sm btn-default">文史传奇</button>
+								    <button class="btn btn-sm btn-default">游客分享</button>
+								    <button class="btn btn-sm btn-default">3D街景</button>
+								</div>
+							</div>
+							<div class="view_listcon">
+							    <ul class="list-unstyled list-inline viewFlex">
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3077081.html" target="_blank" title="博爱坊">博爱坊</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3077099.html" target="_blank" title="陵门">陵门</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3077101.html" target="_blank" title="碑亭">碑亭</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3077102.html" target="_blank" title="祭堂">祭堂</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3076570.html" target="_blank" title="行健亭">行健亭</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201411/t20141126_3066756.html" target="_blank" title="音乐台">音乐台</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3076631.html" target="_blank" title="孝经鼎">孝经鼎</a></li>
+							    
+							        <li><a href="./zsljq/hxjd/201412/t20141204_3077106.html" target="_blank" title="光化亭">光化亭</a></li>
+							    
+							        <li class="viewHidden"><a href="http://www.sunyat-sen.cn/?do=Index" target="_blank" title="孙中山纪念馆">孙中山纪...</a></li>
+							    
+							        <li class="viewHidden"><a href="./zsljq/hxjd/201412/t20141204_3077109.html" target="_blank" title="仰止亭">仰止亭</a></li>
+							    
+							        <li class="viewHidden"><a href="./zsljq/hxjd/201412/t20141204_3077079.html" target="_blank" title="流徽榭">流徽榭</a></li>
+							    
+							        <li class="viewHidden"><a href="http://zschina.nanjing.gov.cn/whzs/mlg/201410/t20141021_3026413.html" target="_blank" title="美龄宫">美龄宫</a></li>
+							    </ul>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 viewplace">
+							<div class="title">
+							    <span>
+								    明孝陵景区
+								    <small class="pull-right" style="line-height: 1rem;"><a href="#" style="color: #E30101"><em>More</em></a></small>
+							    </span>
+						        <div class="viewp_share">
+						    	    <button class="btn btn-sm btn-default">图游景区</button>
+						    	    <button class="btn btn-sm btn-default">文史传奇</button>
+						    	    <button class="btn btn-sm btn-default">游客分享</button>
+						    	    <button class="btn btn-sm btn-default">3D街景</button>
+						    	</div>
+							</div>
+							<div class="view_listcon">
+							    <ul class="list-unstyled list-inline viewFlex">
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3076812.html" target="_blank" title="下马坊遗址公园">下马坊</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3077084.html" target="_blank" title="四方城">四方城</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3077088.html" target="_blank" title="石象路">石象路</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201411/t20141119_3059739.html" target="_blank" title="梅花山">梅花山</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3077087.html" target="_blank" title="梅花谷公园">梅花谷公园</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3077086.html" target="_blank" title="红楼艺文苑">红楼艺文苑</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141210_3086910.html" target="_blank" title="文武方门">文武方门</a></li>
+							    
+							        <li><a href="./mxljq/hxjd_54723/201412/t20141204_3077091.html" target="_blank" title="方城明楼">方城明楼</a></li>
+							    
+							        <li class="viewHidden"><a href="http://zschina.nanjing.gov.cn/whzs/zgmhyszx/201410/t20141022_3026817.html" target="_blank" title="中国南京梅花艺术中心">中国南京...</a></li>
+							    
+							        <li class="viewHidden"><a href="http://zschina.nanjing.gov.cn/whzs/dwddjng/201410/t20141021_3026323.html" target="_blank" title="东吴大帝孙权纪念馆">东吴大帝...</a></li>
+							    
+							        <li class="viewHidden"><a href="./mxljq/hxjd_54723/201412/t20141204_3077092.html" target="_blank" title="明东陵遗址">明东陵遗址</a></li>
+							    
+							        <li class="viewHidden"><a href="./mxljq/hxjd_54723/201412/t20141204_3077093.html" target="_blank" title="紫霞湖">紫霞湖</a></li>
+							    </ul>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 viewplace">
+							<div class="title">
+							    <span>
+							    	灵谷景区
+							    	<small class="pull-right" style="line-height: 1rem;"><a href="#" style="color: #E30101"><em>More</em></a></small>
+							    </span>
+							    <div class="viewp_share">
+								    <button class="btn btn-sm btn-default">图游景区</button>
+								    <button class="btn btn-sm btn-default">文史传奇</button>
+								    <button class="btn btn-sm btn-default">游客分享</button>
+								    <button class="btn btn-sm btn-default">3D街景</button>
+								</div>
+							</div>
+							<div class="view_listcon">
+							    <ul class="list-unstyled list-inline viewFlex">
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077145.html" target="_blank" title="万工池">万工池</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077133.html" target="_blank" title="红山门">红山门</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077131.html" target="_blank" title="无梁殿">无梁殿</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077142.html" target="_blank" title="邓演达墓">邓演达墓</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077140.html" target="_blank" title="谭延闿墓">谭延闿墓</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077132.html" target="_blank" title="阵亡将士牌坊">阵亡将士...</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077128.html" target="_blank" title="阵亡将士公墓">阵亡将士...</a></li>
+							        
+							            <li><a href="./lgjq/hxjd_54729/201412/t20141204_3077125.html" target="_blank" title="志公殿">志公殿</a></li>
+							        
+							            <li class="viewHidden"><a href="./lgjq/hxjd_54729/201412/t20141204_3077122.html" target="_blank" title="灵谷塔">灵谷塔</a></li>
+							        
+							            <li class="viewHidden"><a href="./lgjq/hxjd_54729/201412/t20141204_3077119.html" target="_blank" title="八功德水">八功德水</a></li>
+							        
+							            <li class="viewHidden"><a href="./lgjq/hxjd_54729/201412/t20141204_3077117.html" target="_blank" title="灵谷深松">灵谷深松</a></li>
+							        
+							            <li class="viewHidden"><a href="./lgjq/hxjd_54729/201412/t20141204_3077116.html" target="_blank" title="灵谷寺">灵谷寺</a></li>
+							    </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 sinaWeibo">
+				    <iframe style="width: 100%;height: 15rem" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=235&amp;height=520&amp;fansRow=2&amp;ptype=1&amp;speed=300&amp;skin=1&amp;isTitle=1&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=2055415625&amp;verifier=76f9a82f&amp;dpc=1" frameborder="0" scrolling="no"></iframe>
+				</div>
+				
+			</div>
+		</div>
+		<!-- 钟山特色 -->
+		<div class="zsChar" id="zsChar">
+	        <div class="conr_btl">
+	            <div class="title">
+	                <span>休闲钟山</span>
+	            </div>
+	            <div class="content">
+	                <ul class="list-unstyled list-inline">
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="紫金山绿道">紫金山绿道</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="青果驿站">青果驿站</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="白马公园">白马公园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="下马坊遗址公园">下马坊遗址公园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="体育运动公园">体育运动公园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="博爱园">博爱园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="琵琶湖公园">琵琶湖公园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="滑道游乐园">滑道游乐园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="山顶公园">山顶公园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="前湖公园">前湖公园</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div class="conr_btc">
+	            <div class="title">
+	                <span>文化钟山</span>
+	            </div>
+	            <div class="content">
+	                <ul class="list-unstyled list-inline">
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="东吴大帝孙权纪念馆">东吴大帝孙权纪念馆</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="明孝陵博物馆">明孝陵博物馆</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="美龄宫">美龄宫</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="" title="孙中山纪念馆">孙中山纪念馆</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="南京抗日航空烈士纪念馆">南京抗日航空烈...</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="文心雕龙纪念馆">文心雕龙纪念馆</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="中国梅花艺术中心">中国梅花艺术中心</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="紫金山天文台">紫金山天文台</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="民国故事">民国故事</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="明朝故事">明朝故事</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="六朝故事">六朝故事</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="佛教故事">佛教故事</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="" title="名人往事">名人往事</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div class="conr_btr">
+	            <div class="title">
+	                <span>生态钟山</span>
+	            </div>
+	            <div class="content">
+	                <ul class="list-unstyled list-inline">
+	                    <li class="btn btn-sm btn-default"><a href="./stzs/dzwbh/" title="动植物保护">动植物保护</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="./stzs/gsmmbh/" title="古树名木保护">古树名木保护</a></li>
+	                
+	                    <li class="btn btn-sm btn-default"><a href="./stzs/txdyms/" title="天下第一梅山">天下第一梅山</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="./stzs/lgwzgy/" title="灵谷万株桂园">灵谷万株桂园</a></li>
+	                
+	                    <li class="zsCharHidden btn btn-sm btn-default"><a href="./stzs/zszwy_54770/" title="中山植物园">中山植物园</a></li>
+	                </ul>
+	            </div>
+	        </div>
+		</div>
+		<button class="btn btn-primary btn-block daohang">景区导航</button>
+		<!-- 底部连接和版权栏 -->
+		<footer>
+			<p class="text-center">&copy; 2016-2020 www.liubinweb.com</p>
+		</footer>
+	</div>
+	<script> 	
+		$(function(){
+		    $('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+</body>
+</html>

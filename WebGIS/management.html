@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理系统</title>
+    <!-- Bootstrap Styles-->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Styles-->
+    <link href="./css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="./css/custom-styles.css" rel="stylesheet" />
+    <style>
+        #page-inner {
+            padding: 0 100px;
+        }
+        #page-inner h3 {
+          line-height: 80px;
+        }
+        #page-inner li {
+          margin: 4px 0;
+        }
+        #page-inner a {
+          float: left;
+          text-decoration: none;
+          color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">导航按钮</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><strong>钟山风景区</strong></a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 用户</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" href="management.html"><i class="fa fa-dashboard"></i> 政务通知</a>
+                    </li>
+					<li>
+                        <a href="charts.html"><i class="fa fa-bar-chart-o"></i> 数据图表</a>
+                    </li>
+                    <li>
+                        <a href="information.html"><i class="fa fa-qrcode"></i>信息发布</a>
+                    </li>
+                    
+                    <li>
+                        <a href="##"><i class="fa fa-table"></i> 其他</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <!-- /. NAV SIDE  --> 
+		<div id="page-wrapper">
+            <div class="header"> 
+                <span class="page-header"></span>					
+            </div>
+            <div id="page-inner" class="container">
+                <h3 class="title col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">通知公告</h3>
+                <ul class="list-unstyled col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <li><a href="##" target="_blank" title="演出通知">演出通知</a>[2016-04-15]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵景区预约系统工程招标公告">中山陵景区预约系统工程招标公告</a>[2016-04-13]</li>
+                
+                    <li><a href="##" target="_blank" title="【演出通知】双休日中山陵音乐台演出日程">【演出通知】双休日中山陵音乐台演出日程</a>[2016-04-08]</li>
+                
+                    <li><a href="##" target="_blank" title="2016中山陵音乐台“紫藤花开”音乐季演出通知">2016中山陵音乐台“紫藤花开”音乐季演出通知</a>[2016-04-01]</li>
+                
+                    <li><a href="##" target="_blank" title="龙脖子路即日起夜间封闭修复">龙脖子路即日起夜间封闭修复</a>[2016-03-23]</li>
+                
+                    <li><a href="##" target="_blank" title="明孝陵景区票务系统工程中标结果公示">明孝陵景区票务系统工程中标结果公示</a>[2016-03-16]</li>
+                
+                    <li><a href="##" target="_blank" title="明孝陵景区票务系统工程招标公告">明孝陵景区票务系统工程招标公告</a>[2016-03-04]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵陵寝安检系统项目中标结果公示">中山陵陵寝安检系统项目中标结果公示</a>[2016-02-29]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵陵寝安检系统项目招标公告">中山陵陵寝安检系统项目招标公告</a>[2016-02-15]</li>
+                
+                    <li><a href="##" target="_blank" title="招租公告">招租公告</a>[2016-01-29]</li>
+                
+                    <li><a href="##" target="_blank" title="招租公告">招租公告</a>[2016-01-22]</li>
+                
+                    <li><a href="##" target="_blank" title="明孝陵（紫霞湖）等4个停车场委托管理项目中标结果公示">明孝陵（紫霞湖）等4个停车场委托管理项目中标结果公示</a>[2015-12-31]</li>
+                
+                    <li><a href="##" target="_blank" title="明孝陵（紫霞湖）等4个停车场委托管理项目">明孝陵（紫霞湖）等4个停车场委托管理项目</a>[2015-12-22]</li>
+                
+                    <li><a href="##" target="_blank" title="南京抗日航空烈士纪念馆劳务外包项目中标结果公示">南京抗日航空烈士纪念馆劳务外包项目中标结果公示</a>[2015-12-15]</li>
+                
+                    <li><a href="##" target="_blank" title="南京抗日航空烈士纪念馆劳务外包项目招标公告">南京抗日航空烈士纪念馆劳务外包项目招标公告</a>[2015-12-02]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵智慧景区基础网络、设施改造工程中标结果公示">中山陵智慧景区基础网络、设施改造工程中标结果公示</a>[2015-11-23]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵园风景区基础网络工程招标公告">中山陵园风景区基础网络工程招标公告</a>[2015-11-13]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵森林防火智能监测指挥系统工程中标结果公示">中山陵森林防火智能监测指挥系统工程中标结果公示</a>[2015-11-02]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵灵谷寺大门改造工程招标公告">中山陵灵谷寺大门改造工程招标公告</a>[2015-10-22]</li>
+                
+                    <li><a href="##" target="_blank" title="中山陵音乐台大门改造工程招标公告">中山陵音乐台大门改造工程招标公告</a>[2015-10-22]</li>
+                </ul> 
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <script src="./JavaScript/jquery-2.2.3.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

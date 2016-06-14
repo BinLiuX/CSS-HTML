@@ -1,0 +1,32 @@
+/* 生活指数 */
+#weather{
+	margin-top:15px;
+	width:650px;
+}
+#weather .title{
+	border-bottom:1px solid #e2e2e2;
+	padding-bottom:8px;width:645px;
+}
+#weather ul{
+	margin-top:15px;
+}
+#weather ul{
+	height:303px;
+}
+#weather ul li{
+	font-size:13px;
+	float:left;
+	width:130px;
+	height:300px;
+	margin:0 0 0 16px;
+	padding-right:15px;
+	border-right:1px solid #EFEFEF;
+}
+#weather ul li div{
+	width:125px;
+	height:118px;
+	border:1px solid #b9cfd7;
+	border-radius:5px;
+	text-align:center;
+	line-height:27px;
+}

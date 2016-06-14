@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中山陵</title>
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <!--下面三个是清除缓存 微信浏览器缓存严重又无刷新；这个方法调试的时候很方便-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="./JavaScript/jquery-2.2.3.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<style>
+		* {
+			font-family: '微软雅黑';
+			text-overflow:ellipsis; 
+			word-wrap: break-word; 
+			color: #777;
+		}
+		body {
+			padding:70px 0.6rem;
+		}
+		/*移动端适配*/
+		@media screen and (max-width: 480px) {
+			body {
+				padding: 70px 0 50px;
+			}
+		}
+		/*rem设置字体*/
+		html {
+		    font-size : 16px;
+		}
+		@media only screen and (min-width: 401px){
+		    html {
+		        font-size: 20px !important;
+		    }
+		}
+		@media only screen and (min-width: 428px){
+		    html {
+		        font-size: 21.75px !important;
+		    }
+		}
+		@media only screen and (min-width: 481px){
+		    html {
+		        font-size: 24px !important; 
+		    }
+		}
+		@media only screen and (min-width: 569px){
+		    html {
+		        font-size: 27px !important; 
+		        }
+		}
+		@media only screen and (min-width: 641px){
+		    html {
+		        font-size: 30px !important; 
+		    }
+		}
+		/*搜索栏bug处理*/
+		@media screen and (min-width: 700px) and (max-width: 998px) {
+			.form-responsive {
+				display: none;
+			}
+		}
+		.mobiOnly {
+		    display: none;
+		}
+		@media screen and (max-device-width: 480px) {
+		    .pcOnly {
+		        display: none;
+		    }
+		    .mobiOnly {
+		        display: inline-block;
+		    }
+		}
+		.main {
+			margin:0 2rem;	
+			box-sizing: border-box;
+		}
+		.introZone {
+			position: relative;
+			padding: 1rem 0;
+			background-color:#F9F9F9;
+			border-radius: 5px;
+		}
+		.channel { 
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size:0.8rem; 
+			text-align: center;
+		}
+		.introZone .info {
+			border-left: 2px solid #fff;
+			font-size: 0.4rem;
+		}
+		.introInfo {
+			margin: 0.7rem 0;
+			padding: 0;
+		}
+		/*@media screen and (max-width: 480px) {
+			.introInfo {
+				display: none;
+			}
+		}*/
+		.btn-block {
+			display: none;
+		}
+		.zslSpot {
+			margin-top: 20px;
+		}
+		.pcOnly {
+			display: inline-block;
+		}
+		.mobiOnly {
+			display: none;
+		}
+		@media screen and (max-width: 480px) {
+			.pcOnly {
+				display: none;
+			}
+			.mobiOnly {
+				display: inline-block;
+			}
+			.zslSpot {
+				margin-top: 10px;
+			}
+			.zslSpot p {
+				font-size: 0.5rem;
+			}
+			.btn-block {
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+			.breadcrumb {
+				display: none;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			.zslSpot {
+				margin-top: 0px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="con">
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">缩放导航</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand pcOnly" href="index.html">钟山风景区</a>
+		      <a class="navbar-brand mobiOnly" href="#"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>返回</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山景区&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="zsl.html">中山陵景区</a></li>
+		            <li><a href="#">明孝陵景区</a></li>
+		            <li><a href="#">灵谷景区</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">钟山特色&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">文化钟山</a></li>
+		            <li><a href="#">休闲钟山</a></li>
+		            <li><a href="#">生态钟山</a></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">景区服务&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">食在钟山</a></li>
+		            <li><a href="#">宿在钟山</a></li>
+		            <li><a href="#">行在钟山</a></li>
+		            <li><a href="#">游在钟山</a></li>
+		            <li><a href="#">购在钟山</a></li>
+		            <li><a href="#">娱在钟山</a></li>
+		          </ul>
+		        </li>
+		        <li><a href="navigation.html">景区导航</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">音色钟山&nbsp;<span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">图片库</a></li>
+		            <li><a href="#">视频库</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-right form-responsive"  role="search">
+		        <div class="form-group">
+		            <input type="text" class="form-control input-sm" placeholder="搜索">
+		        </div>
+		        <button type="submit" class="btn btn-default btn-sm">
+		            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		        </button>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="main container-fluid">
+			<div class="row">
+				<ol class="col-lg-12 breadcrumb">
+					<li><a href="index.html">首页</a></li>
+					<li class="active">中山陵景区</li>
+				</ol> 
+				<!-- 3d地图 -->
+				<div class="col-lg-12 mobiOnly">
+					<div class="row d3">
+						<div class="content3">
+							<img class="img-responsive" src="./images/zsl_szone_3dsv_201411.jpg"/>
+						</div>
+					</div>
+				</div>
+				<a href="" class="btn btn-block btn-default" style="background: #f9f9f9">进入导航</a>
+				<div class="col-lg-12 introZone">
+					<div class="row">
+						<div class="channel col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							<p>中山陵景区</p>
+						</div>
+						<div class="info col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+						 	<p>票价：中山陵陵寝免费开放、音乐台10元/人、美龄宫30元/人</p>
+						    <p>时间：08：30-17：00开放（周一关闭祭堂和墓室）</p>
+						    <p>交通：乘坐南京地铁2号线至中山陵下马坊站下车，出站可换乘景区观光车或沿博爱路步行前往中山陵</p>
+						    <p>乘坐南京公交34路或201路至中山陵停车场站</p>
+						    <p>景点：中山陵、音乐台、美龄宫、流徽榭、孙中山纪念馆</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 introInfo">
+					<div class="row">
+						<!-- 轮播图 -->
+						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+							<div id="zsSlide" class="carousel slide" data-ride="carousel">
+								<!-- Indicators -->
+								<ol class="carousel-indicators" style="bottom: 0">
+									<li data-target="#zsSlide" data-slide-to="0" class="active"></li>
+									<li data-target="#zsSlide" data-slide-to="1"></li>
+									<li data-target="#zsSlide" data-slide-to="2"></li>
+									<li data-target="#zsSlide" data-slide-to="3"></li>
+								</ol>
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<img src="./images/W020141221683568497993.jpg" alt="chrome">
+									</div>
+									<div class="item">
+										<img src="./images/W020141221688494514290.jpg" alt="...">
+									</div>
+									<div class="item">
+										<img src="./images/W020141221693505864327.jpg" alt="...">
+									</div>
+									<div class="item">
+										<img src="./images/W020141221790977647548.jpg" alt="...">
+									</div>
+								</div>
+								<!--Carousel Controls -->
+								<a class="left carousel-control" href="#zsSlide" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#zsSlide" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+						<!-- 景区概况 -->
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 zslSpot">
+				    		<div class="row-fluid">
+	    			    		<ol class="col-lg-12 breadcrumb">
+	    							<li class="active">景区概况</li>
+	    						</ol> 
+	    					    <p class="col-lg-12" style="padding: 0">
+		    					    中山陵园风景区地处南京市东部，是国家重点风景名胜区——钟山风景区的主体部分，面积31平方公里，因伟大的民主革命先行者孙中山先生安葬在此而得名。风景区浓缩了古都南京2000多年的发展史，以民国文化、明代文化、六朝文化为代表，以山水城林交融一体的自然景观为特色，以名胜古迹众多而享誉海内外；包括了中山陵、明孝陵和灵谷寺为中心的3大景区，拥有15处全国重点文物保护单位，31处省、市级文物保护单位，山环水抱，雄秀兼具，年接待游客量逾500万人次。
+		    					    <br/>
+		    					    自1991年以来，景区先后获得“中国旅游胜地四十佳”、“全国爱国主义教育...
+		    					    <a href="#" target="_blank">[查看全文]</a>
+	    					    </p>
+				    		</div>
+						</div>
+					</div>
+				</div>
+			
+				<!-- 3d地图 -->
+				<div class="col-lg-12 pcOnly">
+					<div class="row d3">
+						<ol class="col-lg-12 breadcrumb">
+							<li class="active">3D街景</li>
+						</ol> 
+						<div class="content3">
+							<img class="img-responsive" src="./images/zsl_szone_3dsv_201411.jpg"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>
